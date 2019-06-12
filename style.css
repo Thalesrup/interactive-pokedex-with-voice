@@ -1,0 +1,279 @@
+.container {
+  min-width: 800px;
+  min-height: 500px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  position: absolute;
+  top: 15%;
+  left: 25%;
+}
+
+/* =========================POKEDEX LEFT SIDE========================= */
+
+.left-side {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.outer {
+  height: 100%;
+  border-radius: 6% 0% 5% 5%;
+  border: 1.2px solid rgba(0, 0, 0, 0.5);
+  border-width: 0 0 1.2px 1.2px;
+  background-color: #73121e;
+  box-sizing: border-box;
+}
+
+.inner {
+  height: 99%;
+  margin-left: 10px;
+  display: grid;
+  grid-template-rows: 0.35fr 1.65fr;
+}
+
+/* LIGHT========================= */
+
+.light-container {
+  position: relative;
+  border-radius: 40px 0 0 0;
+  border: 1.5px solid rgba(0, 0, 0, 0.5);
+  border-width: 1.2px 0 0 1.2px;
+  background: #cd1030;
+  box-sizing: border-box;
+}
+
+.light-container-left {
+  width: 55%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50% 0 50% 0;
+  border: 1.5px solid rgba(0, 0, 0, 0.5);
+  border-width: 0 0 5px 0;
+  box-sizing: border-box;
+}
+
+.light-container-right {
+  width: 45%;
+  height: 100%;
+  top: 20;
+  right: 0;
+  bottom: 0;
+  border-radius: 30% 10% 0 0;
+  position: absolute;
+  border-top: 4px solid rgba(0, 0, 0, 0.5);
+}
+
+/* BIG LIGHT========================= */
+
+.big-light {
+  position: absolute;
+  margin: 10px 0 0 30px;
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+  background-color: #fcfaff;
+  border: 1.2px solid rgba(0, 0, 0, 0.8);
+}
+
+.blue-light {
+  position: absolute;
+  margin: 4px 0 0 7px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #0ad1ff;
+  border: 1.2px solid rgba(0, 0, 0, 0.8);
+}
+
+.blue-light--dark {
+  position: absolute;
+  margin: 7px 0 0 10px;
+  width: 38px;
+  height: 38px;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.blue-light--white {
+  position: absolute;
+  margin: 6px 0 0 15px;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  background-color: #0ad1ff;
+}
+
+.blue-light--inner-white {
+  margin: 1px 0 0 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: rgba(250, 250, 250, 0.5);
+}
+
+/* SMALL LIGHT========================= */
+
+.small-light-group {
+  margin: 15px 0 0 100px;
+}
+
+.small-light {
+  display: inline-block;
+  margin-right: 5px;
+  width: 22px;
+  height: 22px;
+  border-radius: 100%;
+  background-color: #fcfaff;
+  border: 1.2px solid rgba(0, 0, 0, 0.8);
+}
+
+.red-light {
+  background-color: rgb(238, 7, 7);
+}
+
+.yellow-light {
+  background-color: rgb(221, 226, 20);
+}
+
+.green-light {
+  background-color: rgb(145, 249, 19);
+}
+
+.light-refection {
+  position: absolute;
+  margin: 2px 0 0 1px;
+  width: 21px;
+  height: 21px;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.light-refection-inner {
+  margin: 0 0 0 1px;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+}
+
+.light-refection-inner--white {
+  margin: 1px 0 0 1px;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background-color: rgba(250, 250, 250, 0.3);
+}
+
+/* SCREEN ========================= */
+
+.screen-container {
+  border-radius: 0 0 5% 5%;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.5);
+  border-left: 1.5px solid rgba(0, 0, 0, 0.5);
+  background-color: #cd1030;
+}
+
+.screen-outline {
+  width: 90%;
+  height: 80%;
+  margin-left: 10px;
+  border-radius: 0 0 0 5%;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.5);
+  border-left: 1.5px solid rgba(0, 0, 0, 0.5);
+}
+
+.screen-outer {
+  position: absolute;
+  width: 290px;
+  height: 350px;
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: rgb(105, 106, 114);
+  border-left: 1.2px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1.2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+}
+
+.screen-inner {
+  position: absolute;
+  width: 98%;
+  height: 350px;
+  margin-left: 5px;
+  background-color: rgb(105, 106, 114);
+  border: 1.2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+}
+
+/* HANDLE ========================= */
+
+.joint-container {
+  width: 10%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  /* background-color: white; */
+}
+
+.joint {
+  width: 100%;
+  height: 94%;
+  position: absolute;
+  top: 21;
+  right: 0;
+  background-color: #cd1030;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+}
+
+.joint-start {
+  width: 105%;
+  height: 20px;
+  position: absolute;
+  top: 20;
+  right: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-width: 2px 0 0 0;
+  z-index: 2;
+}
+
+.joint-end {
+  width: 100%;
+  height: 18px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #73121e;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.joint-inner {
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  top: 20;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-width: 2px 0 0 0;
+  border-radius: 50%;
+}
+
+.joint-refection {
+  width: 10%;
+  height: 95%;
+  position: absolute;
+  top: 23;
+  right: 30;
+  background-color: rgba(250, 250, 250, 0.2);
+}
+
+/* =================================== */
+
+.right-side {
+  background-color: aqua;
+}
