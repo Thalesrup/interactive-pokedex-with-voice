@@ -7,7 +7,7 @@
 
   position: absolute;
   top: 15%;
-  left: 25%;
+  left: 28%;
 }
 
 /* =========================POKEDEX LEFT SIDE========================= */
@@ -20,7 +20,7 @@
 
 .outer {
   height: 100%;
-  border-radius: 6% 0% 5% 5%;
+  border-radius: 6% 5% 5% 5%;
   border: 1.2px solid rgba(0, 0, 0, 0.5);
   border-width: 0 0 1.2px 1.2px;
   background-color: #73121e;
@@ -38,9 +38,9 @@
 
 .light-container {
   position: relative;
-  border-radius: 40px 0 0 0;
-  border: 1.5px solid rgba(0, 0, 0, 0.5);
-  border-width: 1.2px 0 0 1.2px;
+  border-radius: 40px 20px 0 0;
+  border-top: 1.2px solid rgba(0, 0, 0, 0.5);
+  border-left: 1.2px solid rgba(0, 0, 0, 0.5);
   background: #cd1030;
   box-sizing: border-box;
 }
@@ -50,8 +50,7 @@
   height: 100%;
   position: absolute;
   border-radius: 50% 0 50% 0;
-  border: 1.5px solid rgba(0, 0, 0, 0.5);
-  border-width: 0 0 5px 0;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
 }
 
@@ -193,17 +192,73 @@
   background-color: rgb(105, 106, 114);
   border-left: 1.2px solid rgba(0, 0, 0, 0.5);
   border-bottom: 1.2px solid rgba(0, 0, 0, 0.5);
+
   border-radius: 12px;
 }
 
 .screen-inner {
   position: absolute;
-  width: 98%;
-  height: 350px;
+  width: 97.5%;
+  height: 98%;
   margin-left: 5px;
-  background-color: rgb(105, 106, 114);
-  border: 1.2px solid rgba(0, 0, 0, 0.5);
+  background-color: rgb(222, 222, 222);
+  border: 1.2px solid rgba(0, 0, 0, 0.8);
   border-radius: 12px;
+}
+
+.screen-button-group {
+  width: 100%;
+  height: 10%;
+  text-align: center;
+}
+
+.small-button {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-top: 10px;
+  border-radius: 50%;
+  border: 1.2px solid rgba(0, 0, 0, 0.8);
+  background-color: rgb(206, 16, 48);
+}
+
+.small-button:first-child {
+  margin-right: 10px;
+}
+
+.screen {
+  width: 90%;
+  height: 75%;
+  margin: auto;
+  border-radius: 5%;
+  border: 1.2px solid rgba(0, 0, 0, 0.8);
+  background-color: white;
+}
+
+.big-button {
+  float: left;
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
+  margin-left: 20px;
+  border-radius: 50%;
+  border: 1.2px solid rgba(0, 0, 0, 0.8);
+  background-color: rgb(206, 16, 48);
+}
+
+.speaker {
+  height: 30px;
+  float: right;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+.speaker > div {
+  width: 70px;
+  height: 4px;
+  margin-bottom: 4px;
+  border-radius: 30%;
+  background-color: rgba(5, 5, 5, 0.8);
 }
 
 /* HANDLE ========================= */
@@ -275,5 +330,122 @@
 /* =================================== */
 
 .right-side {
-  background-color: aqua;
+  display: grid;
+  grid-template-rows: 0.3fr 1.7fr;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-right: 60px;
+  /* background-color: salmon; */
+}
+
+.upper-part {
+  position: relative;
+}
+
+.upper-outline-left {
+  width: 45%;
+  height: 100%;
+  position: absolute;
+  border-radius: 0 50% 0 0;
+  background-color: #cd1030;
+  border-top: 2px solid rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.upper-outline-right {
+  width: 55%;
+  height: 100%;
+  right: 0;
+  bottom: 15;
+  border-radius: 30% 0 0 30%;
+  position: absolute;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  background-color: white;
+}
+
+.upper-outline-right-background {
+  width: 55%;
+  height: 50%;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  border-right: 2px solid rgba(0, 0, 0, 0.5);
+  background-color: #cd1030;
+}
+
+.upper-left {
+  width: 35%;
+  height: 60%;
+  top: 25;
+  left: 20;
+  position: absolute;
+  border-radius: 0 50% 0 0;
+  border-top: 4px solid rgba(0, 0, 0, 0.5);
+  border-left: 1.5px solid rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+.upper-right {
+  width: 55.5%;
+  height: 100%;
+  right: 10;
+  bottom: 0;
+  border-radius: 0 0 0 30%;
+  position: absolute;
+  border-bottom: 4.5px solid rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+/* =================================== */
+.lower-part {
+  position: relative;
+  background-color: #cd1030;
+  border-radius: 0 0 5% 0;
+  border-right: 2px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.lower-part-inner {
+  width: 90%;
+  height: 80%;
+  margin-left: 20px;
+  border-radius: 0 0 5% 0;
+  border-top: 0;
+  border-right: 4.5px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.5);
+  border-left: 1.5px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+#searchInput {
+  padding: 10px;
+  width: 250px;
+  height: 30px;
+  margin-top: 25px;
+  margin-left: 2px;
+  background-color: rgb(3, 45, 40);
+  border: 1.5px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  color: white;
+}
+
+#searchInput:focus {
+  outline: none;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(255, 255, 255, 0.5);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgba(255, 255, 255, 0.5);
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: rgba(255, 255, 255, 0.5);
 }
