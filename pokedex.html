@@ -2,7 +2,10 @@
   <head>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
@@ -53,7 +56,9 @@
                       <div class="small-button"></div>
                     </div>
                     <div id="screen" class="screen"></div>
-                    <div class="big-button"></div>
+                    <div class="speaker-button">
+                      <div></div>
+                    </div>
                     <div class="speaker">
                       <div></div>
                       <div></div>
@@ -89,10 +94,47 @@
         </div>
         <div class="lower-part">
           <div class="lower-part-inner">
-            <input id="searchInput" type="text" placeholder="Search pokemon name or id"></input>
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Search Pokemon Name or ID"
+            />
+            <div class="info-screen">
+              <div class="info">
+                <p>SPECIES:</p>
+                <p id="species">...</p>
+              </div>
+              <div class="info">
+                <p>TYPE:</p>
+                <p id="type">...</p>
+              </div>
+              <div class="info">
+                <p>HEIGHT:</p>
+                <p id="height">...</p>
+              </div>
+              <div class="info">
+                <p>WEIGHT:</p>
+                <p id="weight">...</p>
+              </div>
+              <div class="info" style="grid-column: 1 / span 2;">
+                <p>EVOLUTION CHAIN:</p>
+                <p id="evoChain">...</p>
+              </div>
+              <div class="info" style="grid-column: 1 / span 2;">
+                <p>DESCRIPTION:</p>
+                <p id="description">
+                  ...
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+    ></script>
+    <script type="text/javascript" src="searching.js"></script>
   </body>
 </html>

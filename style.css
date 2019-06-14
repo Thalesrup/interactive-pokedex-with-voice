@@ -8,6 +8,7 @@
   position: absolute;
   top: 15%;
   left: 28%;
+  font-family: "Saira Semi Condensed", sans-serif;
 }
 
 /* =========================POKEDEX LEFT SIDE========================= */
@@ -20,7 +21,7 @@
 
 .outer {
   height: 100%;
-  border-radius: 6% 5% 5% 5%;
+  border-radius: 7% 5% 5% 5%;
   border: 1.2px solid rgba(0, 0, 0, 0.5);
   border-width: 0 0 1.2px 1.2px;
   background-color: #73121e;
@@ -38,7 +39,7 @@
 
 .light-container {
   position: relative;
-  border-radius: 40px 20px 0 0;
+  border-radius: 35px 20px 0 0;
   border-top: 1.2px solid rgba(0, 0, 0, 0.5);
   border-left: 1.2px solid rgba(0, 0, 0, 0.5);
   background: #cd1030;
@@ -232,10 +233,14 @@
   margin: auto;
   border-radius: 5%;
   border: 1.2px solid rgba(0, 0, 0, 0.8);
+  background-size: 50% auto;
+  background-repeat: no-repeat;
+  background-position: center;
   background-color: white;
+  background-image: url("https://i.imgur.com/zIxgrDd.png");
 }
 
-.big-button {
+.speaker-button {
   float: left;
   width: 25px;
   height: 25px;
@@ -243,7 +248,19 @@
   margin-left: 20px;
   border-radius: 50%;
   border: 1.2px solid rgba(0, 0, 0, 0.8);
+  background-color: #73121e;
+}
+
+.speaker-button > div {
+  float: left;
+  width: 22px;
+  height: 22px;
+  margin-top: 0.5px;
+  margin-left: 3px;
+  border-radius: 50%;
   background-color: rgb(206, 16, 48);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
 }
 
 .speaker {
@@ -408,7 +425,7 @@
 
 .lower-part-inner {
   width: 90%;
-  height: 80%;
+  height: 82%;
   margin-left: 20px;
   border-radius: 0 0 5% 0;
   border-top: 0;
@@ -428,6 +445,8 @@
   border: 1.5px solid rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   color: white;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 #searchInput:focus {
@@ -436,16 +455,47 @@
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-family: "Saira Semi Condensed", sans-serif;
   color: rgba(255, 255, 255, 0.5);
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
+  font-family: "Saira Semi Condensed", sans-serif;
   color: rgba(255, 255, 255, 0.5);
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
+  font-family: "Saira Semi Condensed", sans-serif;
   color: rgba(255, 255, 255, 0.5);
+}
+
+.info-screen {
+  padding: 10px;
+  width: 250px;
+  height: 70%;
+  margin: auto;
+  margin-top: 20px;
+  background-color: rgb(3, 45, 40);
+  border: 1.5px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  color: white;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.info {
+  display: block;
+}
+
+.info > p {
+  font-size: small;
+  margin-bottom: 5px;
+}
+
+.info > p:nth-child(2) {
+  margin-left: 15px;
 }
