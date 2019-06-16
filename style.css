@@ -6,8 +6,10 @@
   grid-template-columns: 1fr 1fr;
 
   position: absolute;
-  top: 15%;
-  left: 28%;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
   font-family: "Saira Semi Condensed", sans-serif;
 }
 
@@ -248,10 +250,10 @@
   margin-left: 20px;
   border-radius: 50%;
   border: 1.2px solid rgba(0, 0, 0, 0.8);
-  background-color: #73121e;
+  background-color: rgb(206, 16, 48);
 }
 
-.speaker-button > div {
+/* .speaker-button > div {
   float: left;
   width: 22px;
   height: 22px;
@@ -261,7 +263,7 @@
   background-color: rgb(206, 16, 48);
   border: 1px solid rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
-}
+} */
 
 .speaker {
   height: 30px;
@@ -489,13 +491,24 @@
 
 .info {
   display: block;
+  font-size: small;
 }
 
 .info > p {
-  font-size: small;
-  margin-bottom: 5px;
+  margin-bottom: 1opx;
+  line-height: 1.2em;
 }
 
-.info > p:nth-child(2) {
+.info > p:nth-child(2),
+.evolutionChain {
   margin-left: 15px;
+}
+
+.evolutionChain {
+  position: relative;
+}
+
+.evolutionChain > * {
+  margin: auto;
+  display: inline-block;
 }

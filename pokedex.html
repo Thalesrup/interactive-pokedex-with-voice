@@ -56,9 +56,7 @@
                       <div class="small-button"></div>
                     </div>
                     <div id="screen" class="screen"></div>
-                    <div class="speaker-button">
-                      <div></div>
-                    </div>
+                    <div class="speaker-button"></div>
                     <div class="speaker">
                       <div></div>
                       <div></div>
@@ -98,6 +96,7 @@
               id="searchInput"
               type="text"
               placeholder="Search Pokemon Name or ID"
+              value=""
             />
             <div class="info-screen">
               <div class="info">
@@ -118,13 +117,17 @@
               </div>
               <div class="info" style="grid-column: 1 / span 2;">
                 <p>EVOLUTION CHAIN:</p>
-                <p id="evoChain">...</p>
+                <div class="evolutionChain">
+                  <div id="evo1"></div>
+                  <p id="arrow1">></p>
+                  <div id="evo2"></div>
+                  <p id="arrow2">></p>
+                  <div id="evo3"></div>
+                </div>
               </div>
               <div class="info" style="grid-column: 1 / span 2;">
                 <p>DESCRIPTION:</p>
-                <p id="description">
-                  ...
-                </p>
+                <p id="description">...</p>
               </div>
             </div>
           </div>
