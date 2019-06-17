@@ -1,5 +1,4 @@
 $("document").ready(function() {
-  //
   window.speechSynthesis.cancel();
 
   // Add event for search box
@@ -7,6 +6,7 @@ $("document").ready(function() {
     if (e.keyCode == "13") {
       window.speechSynthesis.cancel();
       $("#searchInput").autocomplete("close");
+      showOverlay();
       getData();
     }
   });
@@ -104,7 +104,23 @@ $("document").ready(function() {
         showData(pokemonData);
 
         console.log(error.message);
+      })
+      .finally(() => {
+        $(".overlay").hide();
+        $("#searchInput").autocomplete("close");
       });
+  }
+
+  function showOverlay() {
+    $(".overlay").show();
+    $("#species").html("...");
+    $("#type").html("...");
+    $("#height").html("...");
+    $("#weight").html("...");
+    $("#description").html("...");
+    $("#evolution-1").html("...");
+    $("#evolution-2").html("...");
+    $("#evolution-3").html("...");
   }
 
   function showData(pokemonData) {
@@ -165,7 +181,11 @@ $("document").ready(function() {
   function getType(typeArray) {
     return typeArray
       .reverse()
-      .map(currentType => capitalizeWord(currentType.type.name))
+      .map(
+        currentType =>
+          currentType.type.name.charAt(0).toUpperCase() +
+          currentType.type.name.slice(1)
+      )
       .join("\\");
   }
 
@@ -175,9 +195,5 @@ $("document").ready(function() {
 
   function getWeight(weight) {
     return `${weight / 10} kg`;
-  }
-
-  function capitalizeWord(word) {
-    return word.charAt(0).toUpperCase() + word.slice(1);
   }
 });
