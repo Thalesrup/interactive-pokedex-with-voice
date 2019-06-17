@@ -1,6 +1,7 @@
 # About this
 This project is an attempt to "draw" the famous pokedex using only CSS and HTML. 
-The searching feature is written in Javascript. 
+
+An searching feature is also implemented using ES6 Javascript. 
 
 ## Contribution
 I would love to receive your feedback on how to improve this project.
