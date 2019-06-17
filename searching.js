@@ -2,71 +2,117 @@ $("document").ready(function() {
   window.speechSynthesis.cancel();
 
   function getData() {
-    const searchKeyword = $("#searchInput").val();
-    const url = "https://pokeapi.co/api/v2/pokemon/" + searchKeyword;
+    const url = "https://pokeapi.co/api/v2/pokemon/" + getSearchKeyword();
 
-    let name;
-    let description;
+    const pokemonData = {
+      id: "",
+      name: "",
+      species: "",
+      type: "",
+      height: "",
+      weight: "",
+      evolution: {},
+      description: "",
+      imageUrl: ""
+    };
 
     fetch(url)
-      .then(data => data.json())
-      .then(data => {
-        $("#searchInput").val(`${getId(data.id)} - ${data.name.toUpperCase()}`);
-        $("#type").html(`${getType(data.types)}`);
-        $("#height").html(getHeight(data.height));
-        $("#weight").html(getWeight(data.weight));
-        $("#screen").css(
-          "background-image",
-          "url(" + getImageUrl(data.name) + ")"
-        );
+      .then(response => response.json())
+      .then(response => {
+        pokemonData.id = getId(response.id);
+        pokemonData.name = response.name;
+        pokemonData.types = getType(response.types);
+        pokemonData.height = getHeight(response.height);
+        pokemonData.weight = getWeight(response.weight);
+        pokemonData.imageUrl = getImageUrl(response.name);
 
-        name = data.name;
-
-        return fetch(data.species.url);
+        return fetch(response.species.url);
       })
-      .then(data => data.json())
-      .then(data => {
-        $("#species").html(getSpecies(data.genera));
-        $("#description").html(getDescription(data.flavor_text_entries));
+      .then(response => response.json())
+      .then(response => {
+        pokemonData.species = getSpecies(response.genera);
+        pokemonData.description = getDescription(response.flavor_text_entries);
 
-        description = getDescription(data.flavor_text_entries);
-        return fetch(data.evolution_chain.url);
+        return fetch(response.evolution_chain.url);
       })
-      .then(data => data.json())
-      .then(data => {
-        const evo1 = `<p>${cap(data.chain.species.name)}</p>`;
-        let evo2 = [];
-        let evo3 = [];
+      .then(response => response.json())
+      .then(response => {
+        const evolution_01 = response.chain.species.name;
+        const evolution_02 = [];
+        const evolution_03 = [];
 
-        data.chain.evolves_to.forEach(data => {
-          evo2.push(`<p>${cap(data.species.name)}</p>`);
+        response.chain.evolves_to.forEach(chain2 => {
+          evolution_02.push("<p>" + chain2.species.name + "<p/>");
 
-          data.evolves_to.forEach(data3 => {
-            evo3.push(`<p>${cap(data3.species.name)}</p>`);
+          chain2.evolves_to.forEach(chain3 => {
+            evolution_03.push("<p>" + chain3.species.name + "<p/>");
           });
         });
 
-        if (evo2.length == 0) {
-          evo2.push("N\\A");
-        }
-
-        if (evo3.length == 0) {
-          evo3.push("N\\A");
-        }
-
-        $("#evo1").html(evo1);
-        $("#evo2").html(evo2);
-        $("#evo3").html(evo3);
+        pokemonData.evolution = { evolution_01, evolution_02, evolution_03 };
       })
       .then(() => {
-        setTimeout(function() {
-          var msg = new SpeechSynthesisUtterance(`${name}, ${description}`);
-          window.speechSynthesis.speak(msg);
-        }, 1500);
+        showData(pokemonData);
+
+        // Speak text after 1 second
+        setTimeout(() => {
+          var text = new SpeechSynthesisUtterance(
+            `${pokemonData.name}, ${pokemonData.species}, ${
+              pokemonData.description
+            }`
+          );
+          window.speechSynthesis.speak(text);
+        }, 1000);
       })
       .catch(error => {
-        console.log(error);
+        pokemonData.id = "###";
+        pokemonData.name = "Invalid Pokémon";
+        pokemonData.species = "...";
+        pokemonData.types = "...";
+        pokemonData.height = "...";
+        pokemonData.weight = "...";
+        pokemonData.description = "...";
+        pokemonData.evolution.evolution_01 = "...";
+        pokemonData.evolution.evolution_02 = "...";
+        pokemonData.evolution.evolution_03 = "...";
+        pokemonData.imageUrl = "https://i.imgur.com/zIxgrDd.png";
+
+        showData(pokemonData);
+
+        console.log(error.message);
       });
+  }
+
+  function showData(pokemonData) {
+    $("#searchInput").val(`${pokemonData.id} - ${pokemonData.name}`);
+    $("#species").html(pokemonData.species);
+    $("#type").html(pokemonData.types);
+    $("#height").html(pokemonData.height);
+    $("#weight").html(pokemonData.weight);
+    $("#description").html(pokemonData.description);
+
+    $("#evolution-1").html(pokemonData.evolution.evolution_01);
+    $("#evolution-2").html(pokemonData.evolution.evolution_02);
+    $("#evolution-3").html(pokemonData.evolution.evolution_03);
+
+    pokemonData.evolution.evolution_02.length > 0
+      ? $("#arrow-1").show()
+      : $("#arrow-1").hide();
+
+    pokemonData.evolution.evolution_03.length > 0
+      ? $("#arrow-2").show()
+      : $("#arrow-2").hide();
+
+    $("#screen").css("background-image", "url(" + pokemonData.imageUrl + ")");
+  }
+
+  function getSearchKeyword() {
+    const searchKeyword = $("#searchInput").val();
+
+    if (parseInt(searchKeyword)) {
+      return parseInt(searchKeyword);
+    }
+    return searchKeyword;
   }
 
   const cap = capitalizeWord;
@@ -120,7 +166,7 @@ $("document").ready(function() {
     }
   });
 
-  (function() {
-    getData();
-  })();
+  // (function() {
+  //   getData();
+  // })();
 });
