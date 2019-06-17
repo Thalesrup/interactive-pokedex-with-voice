@@ -253,18 +253,6 @@
   background-color: rgb(206, 16, 48);
 }
 
-/* .speaker-button > div {
-  float: left;
-  width: 22px;
-  height: 22px;
-  margin-top: 0.5px;
-  margin-left: 3px;
-  border-radius: 50%;
-  background-color: rgb(206, 16, 48);
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  box-sizing: border-box;
-} */
-
 .speaker {
   height: 30px;
   float: right;
@@ -449,6 +437,7 @@
   color: white;
   text-align: center;
   text-transform: capitalize;
+  font-family: "Saira Semi Condensed", sans-serif;
 }
 
 #searchInput:focus {
@@ -516,4 +505,15 @@
 .arrow {
   font-size: 16px;
   font-weight: 500;
+}
+
+.ui-widget-content {
+  text-transform: capitalize;
+  background: rgb(3, 45, 40) !important;
+}
+
+.ui-widget.ui-widget-content {
+  font-family: "Saira Semi Condensed", sans-serif;
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.5) !important;
 }

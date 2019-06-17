@@ -1,5 +1,29 @@
 $("document").ready(function() {
+  //
   window.speechSynthesis.cancel();
+
+  // Add event for search box
+  $("#searchInput").keypress(function(e) {
+    if (e.keyCode == "13") {
+      window.speechSynthesis.cancel();
+      $("#searchInput").autocomplete("close");
+      getData();
+    }
+  });
+
+  // Get data for autocomplete search box
+  fetch("https://pokeapi.co/api/v2/pokemon/?limit=807")
+    .then(response => response.json())
+    .then(response => {
+      const availablePokemons = response.results.map(
+        (pokemon, index) => getId(index + 1) + " - " + pokemon.name
+      );
+
+      $("#searchInput").autocomplete({
+        source: availablePokemons,
+        minLength: 2
+      });
+    });
 
   function getData() {
     const url = "https://pokeapi.co/api/v2/pokemon/" + getSearchKeyword();
@@ -115,11 +139,6 @@ $("document").ready(function() {
     return searchKeyword;
   }
 
-  const cap = capitalizeWord;
-  function capitalizeWord(word) {
-    return word.charAt(0).toUpperCase() + word.slice(1);
-  }
-
   function getId(id) {
     if (id.toString().length == 1) {
       return "00" + id;
@@ -146,7 +165,7 @@ $("document").ready(function() {
   function getType(typeArray) {
     return typeArray
       .reverse()
-      .map(currentType => cap(currentType.type.name))
+      .map(currentType => capitalizeWord(currentType.type.name))
       .join("\\");
   }
 
@@ -158,15 +177,7 @@ $("document").ready(function() {
     return `${weight / 10} kg`;
   }
 
-  $("#searchInput").keypress(function(e) {
-    if (e.keyCode == "13") {
-      window.speechSynthesis.cancel();
-
-      getData();
-    }
-  });
-
-  // (function() {
-  //   getData();
-  // })();
+  function capitalizeWord(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
 });
