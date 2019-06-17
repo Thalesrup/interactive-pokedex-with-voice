@@ -1,0 +1,161 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-side">
+        <div class="outer">
+          <div class="inner">
+            <div class="light-container">
+              <div class="light-container-left">
+                <div class="big-light">
+                  <div class="blue-light"></div>
+                  <div class="blue-light--dark"></div>
+                  <div class="blue-light--white">
+                    <div class="blue-light--inner-white"></div>
+                  </div>
+                </div>
+                <div class="small-light-group">
+                  <div class="small-light red-light">
+                    <div class="light-refection">
+                      <div class="light-refection-inner red-light">
+                        <div class="light-refection-inner--white"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="small-light yellow-light">
+                    <div class="light-refection">
+                      <div class="light-refection-inner yellow-light">
+                        <div class="light-refection-inner--white"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="small-light green-light">
+                    <div class="light-refection ">
+                      <div class="light-refection-inner green-light">
+                        <div class="light-refection-inner--white"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="light-container-right"></div>
+            </div>
+            <div class="screen-container">
+              <div class="screen-outline">
+                <div class="screen-outer">
+                  <div class="screen-inner">
+                    <div class="screen-button-group">
+                      <div class="small-button"></div>
+                      <div class="small-button"></div>
+                    </div>
+                    <div id="screen" class="screen">
+                      <div class="overlay" style="display:none">
+                        <p>Searching...</p>
+                      </div>
+                    </div>
+                    <div class="speaker-button"></div>
+                    <div class="speaker">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="joint-container">
+            <div class="joint-start"></div>
+            <div class="joint">
+              <div class="joint-inner"></div>
+              <div class="joint-inner" style="top: 30px"></div>
+              <div class="joint-inner" style="top: 420px"></div>
+              <div class="joint-inner" style="top: 430px"></div>
+            </div>
+            <div class="joint-end"></div>
+            <div class="joint-refection"></div>
+            <div class="joint-refection" style="right: 36; width: 2%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="upper-part">
+          <div class="upper-outline-left"></div>
+          <div class="upper-outline-right"></div>
+          <div class="upper-outline-right-background"></div>
+          <div class="upper-left"></div>
+          <div class="upper-right"></div>
+        </div>
+        <div class="lower-part">
+          <div class="lower-part-inner">
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Search Pokemon Name or ID"
+              value=""
+            />
+            <div class="info-screen">
+              <div class="info">
+                <p>SPECIES:</p>
+                <p id="species">...</p>
+              </div>
+              <div class="info">
+                <p>TYPE:</p>
+                <p id="type">...</p>
+              </div>
+              <div class="info">
+                <p>HEIGHT:</p>
+                <p id="height">...</p>
+              </div>
+              <div class="info">
+                <p>WEIGHT:</p>
+                <p id="weight">...</p>
+              </div>
+              <div class="info" style="grid-column: 1 / span 2;">
+                <p>EVOLUTION CHAIN:</p>
+                <div class="evolution">
+                  <div id="evolution-1">...</div>
+                  <div id="arrow-1" class="arrow">&nbsp;>&nbsp;</div>
+                  <div id="evolution-2">...</div>
+                  <div id="arrow-2" class="arrow">&nbsp;>&nbsp;</div>
+                  <div id="evolution-3">...</div>
+                </div>
+              </div>
+              <div class="info" style="grid-column: 1 / span 2;">
+                <p>DESCRIPTION:</p>
+                <p id="description">...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"
+    ></script>
+    <script type="text/javascript" src="searching.js"></script>
+  </body>
+</html>
