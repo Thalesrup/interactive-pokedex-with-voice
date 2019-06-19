@@ -10,6 +10,13 @@
   font-family: "Saira Semi Condensed", sans-serif;
 }
 
+footer {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-family: "Saira Semi Condensed", sans-serif;
+}
+
 /* =========================POKEDEX LEFT SIDE========================= */
 
 .left-side {
