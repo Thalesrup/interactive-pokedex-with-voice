@@ -3,7 +3,7 @@ $("document").ready(function() {
 
   // Add event for search box
   $("#searchInput").keypress(function(e) {
-    if (e.keyCode == "13") {
+    if (e.keyCode == "13") { // Enter
       window.speechSynthesis.cancel();
       $("#searchInput").autocomplete("close");
       showOverlay();
@@ -21,7 +21,11 @@ $("document").ready(function() {
 
       $("#searchInput").autocomplete({
         source: availablePokemons,
-        minLength: 2
+        minLength: 2,
+        select: function (event, ui) {
+          $("#searchInput").val(ui.item.value);
+          $("#searchInput").trigger({type: 'keypress', keyCode: 13});
+        }
       });
     });
 
