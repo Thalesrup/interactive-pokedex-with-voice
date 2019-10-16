@@ -1,7 +1,7 @@
 # About this
 This project is an attempt to "draw" the famous pokedex using only CSS and HTML. 
 
-An searching feature is also implemented using ES6 Javascript. 
+Searching and voice reading features are implemented using ES6 Javascript. 
 
 ## Credits
 API: https://pokeapi.co
