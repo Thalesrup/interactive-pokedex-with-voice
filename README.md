@@ -3,13 +3,8 @@ This project is an attempt to "draw" the famous pokedex using only CSS and HTML.
 
 An searching feature is also implemented using ES6 Javascript. 
 
-## Contribution
-I would love to receive your feedback on how to improve this project.
-Just create pull request or contact me through quocdat1994@gmai.com.
-
 ## Credits
 API: https://pokeapi.co
-
 Pokemon Image: https://pokemondb.net/
 
 ## Demo Version
