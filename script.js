@@ -5,8 +5,6 @@ $("document").ready(function () {
 
   searchInput.keypress(async (e) => {
     if (e.keyCode == "13") {
-      displayNotFoundMessage(false); // Hide previous 404 result before starting a new search
-
       const pokemon = await getPokemon(searchInput.val());
 
       displayInfo(pokemon);
@@ -78,44 +76,67 @@ const displayNotFoundMessage = (value = true) => {
 
 const getPokemon = async (text) => {
   const searchTerm = getSearchTerm(text);
-  const url = `https://pokeapi.co/api/v2/pokemon/${searchTerm}`;
-  let response = null;
 
   if (Boolean(searchTerm) === false) {
     return {};
   }
 
-  try {
-    displaySearchMessage();
-    response = await axios.get(url);
-  } catch {
+  displayNotFoundMessage(false); // Hide previous 404 result before starting a new search
+  displaySearchMessage();
+
+  const generalInfo = await getGeneralInfo(searchTerm);
+
+  // Pokemon not found
+  if (Boolean(generalInfo) === false) {
     displaySearchMessage(false);
     displayNotFoundMessage();
     return {}
   }
 
-  const species = await axios.get(response.data.species.url);
-  const evolution = species.data.evolution_chain?.url
-    ? await axios.get(species.data.evolution_chain.url)
-    : {
-      species: { name: response.data.name },
-      evolves_to: []
-    };
+  const speciesInfo = await getSpeciesInfo(generalInfo.species.url);
+  const evolutionInfo = await getEvolutionInfo(speciesInfo.evolution_chain?.url, generalInfo.name);
 
   const pokemon = {
-    name: getName(response.data.name),
-    species: getSpecies(species.data.genera),
-    type: getType(response.data.types),
-    height: getHeight(response.data.height),
-    weight: getWeight(response.data.weight),
-    evolution: getEvolution(evolution.data ? evolution.data.chain : evolution),
-    biology: getBiology(species.data.flavor_text_entries),
-    imageUrl: getImageUrl(response.data.name)
+    name: getName(generalInfo.name),
+    species: getSpecies(speciesInfo.genera),
+    type: getType(generalInfo.types),
+    height: getHeight(generalInfo.height),
+    weight: getWeight(generalInfo.weight),
+    evolution: getEvolution(evolutionInfo),
+    biology: getBiology(speciesInfo.flavor_text_entries),
+    imageUrl: getImageUrl(generalInfo.name)
   }
 
   displaySearchMessage(false);
 
   return pokemon;
+}
+
+const getGeneralInfo = async (searchTerm) => {
+  const url = `https://pokeapi.co/api/v2/pokemon/${searchTerm}`;
+
+  try {
+    const response = await axios.get(url);
+    return response.data
+  } catch {
+    return null
+  }
+}
+
+const getSpeciesInfo = async (url) => {
+  const response = await axios.get(url);
+  return response.data;
+}
+
+const getEvolutionInfo = async (url, name) => {
+  if (Boolean(url) === false) {
+    return {
+      species: { name: name },
+      evolves_to: []
+    }
+  }
+  const response = await axios.get(url);
+  return response.data.chain;
 }
 
 const getPokemonList = async (searchInput) => {
