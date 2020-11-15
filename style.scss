@@ -11,7 +11,6 @@ $background-color: lighten(#cd1030, 40);
 
 // ============== Predefined Styles ==============
 @mixin before-after($before: true, $after: true) {
-
   @if $before {
     &::before{
       content: "";
@@ -25,6 +24,11 @@ $background-color: lighten(#cd1030, 40);
       position: absolute;
     }
   }
+}
+
+@mixin border($size: 2px, $color: $secondary-color, $radius: 100%) {
+  border: $size solid $color;
+  border-radius: $radius;
 }
 
 // ============== Predefined Styles ==============
@@ -53,29 +57,26 @@ body {
 .container {
   min-width: 750px;
   min-height: 500px;
+  margin-left: 4rem;
+  
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-left: 3rem;
 
   .left-screen {
     position: relative;
-    border-radius: 20px;
     background-color: $primary-color;
-    border: 2px solid $secondary-color;
     @include before-after(true, false);
+    @include border($radius: 20px);
 
     // Shadow
     &::before { 
       width: 100%; 
       height: 101%;
-      background-color: $secondary-color;
-
-      border: 2px solid $secondary-color;
-      border-radius: 20px;
-
       top: -2px;
       left: -3%;
       z-index: -1;
+      background-color: $secondary-color;
+      @include border($radius: 20px);
     }
 
     // Upper half with lights
@@ -86,10 +87,14 @@ body {
       display: flex;
       @include before-after();
 
-      &::before {
-        width: 55%;
+      &::before,
+      &::after {
         height: calc(100% - 5px);
         border-radius: 50% 0 50% 0;
+      }
+
+      &::before {
+        width: 55%;
         border-bottom: 5px solid rgba(0, 0, 0, 0.5);
       }
 
@@ -97,20 +102,17 @@ body {
         top: 20%;
         right: 0;
         width: 46%;
-        height: calc(100% - 5px);
-        border-radius: 50% 0 50% 0;
         border-top: 5px solid rgba(0, 0, 0, 0.5);
       }
 
       .light {
+        position: relative;
         height: 1.5rem;
         width: 1.5rem;
-        border: 1px solid black;
-        border-radius: 100%;
         margin-top: 1rem;
         margin-right: 0.5rem;
-        position: relative;
         @include before-after();
+        @include border(1px, black);
 
         &--red {
           background-color: rgb(238, 7, 7);
@@ -145,42 +147,31 @@ body {
         }
 
         &::before {
+          width: 90%;
+          height: 90%;
           bottom: 0;
           left: 50%;
           transform: translateX(-50%);
-          width: 90%;
-          height: 90%;
           border-radius: 100%;
           background-color: rgba(0, 0, 0, 0.2);
         }
 
         &::after {
-          left: 10%;
-          top: 10%;
           width: 60%;
           height: 60%;
+          left: 10%;
+          top: 10%;
           border-radius: 100%;
-        }
-
-        &--big {
-          width: 3rem;
-          height: 3rem;
-
-          &::before {
-            width: 92%;
-            height: 92%;
-          }
         }
       }
 
       .light-container {
+        position: relative;
         width: 3.8rem;
         height: 3.8rem;
-        background-color: lighten($display-screen-color, 20);
-        position: relative;
         margin: 0.8rem 1rem 0 1rem;
-        border-radius: 100%;
-        border: 1px solid black;
+        background-color: lighten($display-screen-color, 20);
+        @include border(1px, black);
         @extend .flex-center;
 
         .light {
@@ -208,11 +199,11 @@ body {
       }
 
       .main-screen {
+        position: relative;
         width: 75%;
         height: 90%;
-        border-radius: 10px;
-        border: 1px solid black;
         background-color: $display-screen-color;
+        @include border(1px, black, 10px);
 
         padding: 0 1rem;
         margin-right: 0.8rem;
@@ -222,7 +213,6 @@ body {
         grid-template-rows: 0.1fr 0.75fr 0.15fr;
         align-items: center;
         justify-content: center;
-        position: relative;
         
         &__top-lights {
           position: relative;
@@ -236,9 +226,8 @@ body {
             content: "";
             width: 10px;
             height: 10px;
-            border-radius: 100%;
-            border: 2px solid $secondary-color;
             background-color: $primary-color;
+            @include border();
           }
 
           &::before {
@@ -250,9 +239,8 @@ body {
           grid-column: 1 / span 2;
           width: 100%;
           height: 100%;
-          border-radius: 10px;
-          border: 1px solid black;
           background-color: lighten($display-screen-color, 20);
+          @include border(1px, black, 10px);
 
           .pokemon-image {
             width: 100%;
@@ -267,7 +255,6 @@ body {
           .search-message {
             height: 100%;
             font-size: 1.8rem;
-            text-align: center;
             display: none;
             @extend .flex-center;
           }
@@ -309,9 +296,8 @@ body {
           width: 1.8rem;
           height: 1.8rem;
           background-color: $primary-color;
-          border: 1px solid black;
-          border-radius: 100%;
           margin-left: 0.5rem;
+          @include border(1px, black);
         }
 
         &__speaker {
@@ -331,23 +317,24 @@ body {
 
     // Middle joint
     &__joint {
+      position: absolute;
       width: 10%;
       height: 98%;
-      position: absolute;
       bottom: -2px;
       right: -5px;
       background-color: $primary-color;
+      z-index: 2;
+
       border-left: 2px solid $secondary-color;
       border-right: 2px solid $secondary-color;
       border-radius: 15px;
-      z-index: 2;
       @include before-after();
 
       &::before {
         width: 100%;
         height: 20px;
         border-radius: 50%;
-        border-top: 2px solid rgba(0, 0, 0, 0.5);
+        border-top: 2px solid $secondary-color;
       }
 
       &::after{
@@ -355,9 +342,8 @@ body {
         height: 18px;
         bottom: -2px;
         right: -2px;
-        background-color: rgb(115, 18, 30);
-        border-radius: 50%;
-        border: 2px solid rgba(0, 0, 0, 0.5);
+        background-color: lighten($secondary-color, 5);
+        @include border($radius: 50%);
       }
 
       .joint {
@@ -367,6 +353,7 @@ body {
         height: 1rem;
         border-top: 2px solid $secondary-color;
         border-radius: 100%;
+        z-index: 3;
 
         &:nth-of-type(2) {
           top: 8%;
@@ -382,11 +369,11 @@ body {
       }
 
       .joint__reflextion {
+        position: absolute;
         width: 15%;
         height: 98%;
         left: 10%;
-        position: absolute;
-        background-color: rgba(250, 250, 250, 0.2);
+        background-color: rgba(255, 255, 255, 0.2);
       }
     }
   }
@@ -402,8 +389,8 @@ body {
       &::before,
       &::after,
       div {
-        background-color: $primary-color;
         width: 50%;
+        background-color: $primary-color;
       }
 
       &::before {
@@ -428,47 +415,44 @@ body {
     }
 
     &__bottom {
+      position: relative;
       width: 100%;
       height: 84%;
-      bottom: 0;
       margin-top: 22%;
+      padding: 1.5rem 2rem 1.5rem 2rem;
       background-color: $primary-color;
-      border: 2px solid $secondary-color;
+
+      @include border($radius: 0);
       border-top: none;
       border-bottom-right-radius: 20px;
-      padding: 1.5rem 2rem 1.5rem 2rem;
-      position: relative;
+
       @include before-after();
 
-      &::before,
-      &::after {
-        height: 10%;
-      }
-
       &::before {
-        top: -2%;
         width: 35%;
+        height: 10%;
+        top: -2%;
         border-top: 5px solid $secondary-color;
         border-left: 2px solid $secondary-color;
         border-top-right-radius: 50%;
       }
 
       &::after {
-        top: -4%;
         width: 45%;
+        height: 10%;
+        top: -4%;
         right: 0;
+        margin-right: 2rem;
         border-bottom: 5px solid $secondary-color;
         border-bottom-left-radius: 50%;
-        margin-right: 2rem;
       }
 
       .info-container {
         @extend .flex-center;
         flex-direction: column;
-
         padding: 1rem;
 
-        border: 2px solid $secondary-color;
+        @include border($radius: 0);
         border-right: 5px solid $secondary-color;
         border-top: none;
         border-bottom-right-radius: 20px;
@@ -530,6 +514,5 @@ body {
         }
       }
     }
-
   }
 }

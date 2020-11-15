@@ -22,16 +22,16 @@ body {
 .container {
   min-width: 750px;
   min-height: 500px;
+  margin-left: 4rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-left: 3rem;
 }
 
 .container .left-screen {
   position: relative;
-  border-radius: 20px;
   background-color: #cd1030;
   border: 2px solid #73121E;
+  border-radius: 20px;
 }
 
 .container .left-screen::before {
@@ -42,12 +42,12 @@ body {
 .container .left-screen::before {
   width: 100%;
   height: 101%;
-  background-color: #73121E;
-  border: 2px solid #73121E;
-  border-radius: 20px;
   top: -2px;
   left: -3%;
   z-index: -1;
+  background-color: #73121E;
+  border: 2px solid #73121E;
+  border-radius: 20px;
 }
 
 .container .left-screen__top {
@@ -67,10 +67,13 @@ body {
   position: absolute;
 }
 
-.container .left-screen__top::before {
-  width: 55%;
+.container .left-screen__top::before, .container .left-screen__top::after {
   height: calc(100% - 5px);
   border-radius: 50% 0 50% 0;
+}
+
+.container .left-screen__top::before {
+  width: 55%;
   border-bottom: 5px solid rgba(0, 0, 0, 0.5);
 }
 
@@ -78,19 +81,17 @@ body {
   top: 20%;
   right: 0;
   width: 46%;
-  height: calc(100% - 5px);
-  border-radius: 50% 0 50% 0;
   border-top: 5px solid rgba(0, 0, 0, 0.5);
 }
 
 .container .left-screen__top .light {
+  position: relative;
   height: 1.5rem;
   width: 1.5rem;
-  border: 1px solid black;
-  border-radius: 100%;
   margin-top: 1rem;
   margin-right: 0.5rem;
-  position: relative;
+  border: 1px solid black;
+  border-radius: 100%;
 }
 
 .container .left-screen__top .light::before {
@@ -136,41 +137,31 @@ body {
 }
 
 .container .left-screen__top .light::before {
+  width: 90%;
+  height: 90%;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
-  height: 90%;
   border-radius: 100%;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
 .container .left-screen__top .light::after {
-  left: 10%;
-  top: 10%;
   width: 60%;
   height: 60%;
+  left: 10%;
+  top: 10%;
   border-radius: 100%;
-}
-
-.container .left-screen__top .light--big {
-  width: 3rem;
-  height: 3rem;
-}
-
-.container .left-screen__top .light--big::before {
-  width: 92%;
-  height: 92%;
 }
 
 .container .left-screen__top .light-container {
+  position: relative;
   width: 3.8rem;
   height: 3.8rem;
-  background-color: white;
-  position: relative;
   margin: 0.8rem 1rem 0 1rem;
-  border-radius: 100%;
+  background-color: white;
   border: 1px solid black;
+  border-radius: 100%;
 }
 
 .container .left-screen__top .light-container .light {
@@ -198,11 +189,12 @@ body {
 }
 
 .container .left-screen__bottom .main-screen {
+  position: relative;
   width: 75%;
   height: 90%;
-  border-radius: 10px;
-  border: 1px solid black;
   background-color: #DEDEDE;
+  border: 1px solid black;
+  border-radius: 10px;
   padding: 0 1rem;
   margin-right: 0.8rem;
   display: grid;
@@ -210,7 +202,6 @@ body {
   grid-template-rows: 0.1fr 0.75fr 0.15fr;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
 
 .container .left-screen__bottom .main-screen__top-lights {
@@ -224,9 +215,9 @@ body {
   content: "";
   width: 10px;
   height: 10px;
-  border-radius: 100%;
-  border: 2px solid #73121E;
   background-color: #cd1030;
+  border: 2px solid #73121E;
+  border-radius: 100%;
 }
 
 .container .left-screen__bottom .main-screen__top-lights::before {
@@ -237,9 +228,9 @@ body {
   grid-column: 1 / span 2;
   width: 100%;
   height: 100%;
-  border-radius: 10px;
-  border: 1px solid black;
   background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .container .left-screen__bottom .main-screen__display .pokemon-image {
@@ -255,7 +246,6 @@ body {
 .container .left-screen__bottom .main-screen__display .search-message {
   height: 100%;
   font-size: 1.8rem;
-  text-align: center;
   display: none;
 }
 
@@ -293,9 +283,9 @@ body {
   width: 1.8rem;
   height: 1.8rem;
   background-color: #cd1030;
+  margin-left: 0.5rem;
   border: 1px solid black;
   border-radius: 100%;
-  margin-left: 0.5rem;
 }
 
 .container .left-screen__bottom .main-screen__speaker {
@@ -312,16 +302,16 @@ body {
 }
 
 .container .left-screen__joint {
+  position: absolute;
   width: 10%;
   height: 98%;
-  position: absolute;
   bottom: -2px;
   right: -5px;
   background-color: #cd1030;
+  z-index: 2;
   border-left: 2px solid #73121E;
   border-right: 2px solid #73121E;
   border-radius: 15px;
-  z-index: 2;
 }
 
 .container .left-screen__joint::before {
@@ -338,7 +328,7 @@ body {
   width: 100%;
   height: 20px;
   border-radius: 50%;
-  border-top: 2px solid rgba(0, 0, 0, 0.5);
+  border-top: 2px solid #73121E;
 }
 
 .container .left-screen__joint::after {
@@ -346,9 +336,9 @@ body {
   height: 18px;
   bottom: -2px;
   right: -2px;
-  background-color: #73121e;
+  background-color: #891524;
+  border: 2px solid #73121E;
   border-radius: 50%;
-  border: 2px solid rgba(0, 0, 0, 0.5);
 }
 
 .container .left-screen__joint .joint {
@@ -358,6 +348,7 @@ body {
   height: 1rem;
   border-top: 2px solid #73121E;
   border-radius: 100%;
+  z-index: 3;
 }
 
 .container .left-screen__joint .joint:nth-of-type(2) {
@@ -373,11 +364,11 @@ body {
 }
 
 .container .left-screen__joint .joint__reflextion {
+  position: absolute;
   width: 15%;
   height: 98%;
   left: 10%;
-  position: absolute;
-  background-color: rgba(250, 250, 250, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .container .right-screen {
@@ -398,8 +389,8 @@ body {
 
 .container .right-screen__top::before, .container .right-screen__top::after,
 .container .right-screen__top div {
-  background-color: #cd1030;
   width: 50%;
+  background-color: #cd1030;
 }
 
 .container .right-screen__top::before {
@@ -423,16 +414,16 @@ body {
 }
 
 .container .right-screen__bottom {
+  position: relative;
   width: 100%;
   height: 84%;
-  bottom: 0;
   margin-top: 22%;
+  padding: 1.5rem 2rem 1.5rem 2rem;
   background-color: #cd1030;
   border: 2px solid #73121E;
+  border-radius: 0;
   border-top: none;
   border-bottom-right-radius: 20px;
-  padding: 1.5rem 2rem 1.5rem 2rem;
-  position: relative;
 }
 
 .container .right-screen__bottom::before {
@@ -445,31 +436,30 @@ body {
   position: absolute;
 }
 
-.container .right-screen__bottom::before, .container .right-screen__bottom::after {
-  height: 10%;
-}
-
 .container .right-screen__bottom::before {
-  top: -2%;
   width: 35%;
+  height: 10%;
+  top: -2%;
   border-top: 5px solid #73121E;
   border-left: 2px solid #73121E;
   border-top-right-radius: 50%;
 }
 
 .container .right-screen__bottom::after {
-  top: -4%;
   width: 45%;
+  height: 10%;
+  top: -4%;
   right: 0;
+  margin-right: 2rem;
   border-bottom: 5px solid #73121E;
   border-bottom-left-radius: 50%;
-  margin-right: 2rem;
 }
 
 .container .right-screen__bottom .info-container {
   flex-direction: column;
   padding: 1rem;
   border: 2px solid #73121E;
+  border-radius: 0;
   border-right: 5px solid #73121E;
   border-top: none;
   border-bottom-right-radius: 20px;

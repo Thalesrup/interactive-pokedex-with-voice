@@ -88,7 +88,6 @@ const getPokemon = async (text) => {
   try {
     displaySearchMessage();
     response = await axios.get(url);
-    console.log('response :', response);
   } catch {
     displaySearchMessage(false);
     displayNotFoundMessage();
