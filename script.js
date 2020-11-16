@@ -188,7 +188,8 @@ const getWeight = (weight) => {
 }
 
 const getBiology = (array) => {
-  const biology = array.filter(text => text.language.name == "en")[0].flavor_text;
+  const biologyList = array.filter(text => text.language.name == "en");
+  const biology = biologyList[biologyList.length - 1].flavor_text; // Get latest biology
   return biology;
 }
 
